@@ -107,6 +107,8 @@
     openrazer-daemon
     razergenie
     thunderbird
+    bottles
+    ncdu
     (writeShellScriptBin "me3" "/home/tom/.local/bin/me3")
     ];
   };
@@ -138,6 +140,7 @@
 
   # Install Star Railway Launcher.
   programs.honkers-railway-launcher.enable = true;
+  programs.anime-game-launcher.enable = true;
   imports = [inputs.aagl.nixosModules.default];
 
   programs.nix-ld.enable = true;
