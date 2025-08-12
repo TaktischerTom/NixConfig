@@ -165,6 +165,11 @@
   hardware.openrazer.enable = true;
   hardware.openrazer.users = ["tom"];
 
+  programs.virt-manager.enable = true;
+  users.groups.libvirtd.members = ["tom"];
+  virtualisation.libvirtd.enable = true;
+  virtualisation.spiceUSBRedirection.enable = true;
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
