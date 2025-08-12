@@ -110,6 +110,7 @@
     bottles
     ncdu
     qemu
+    dmg2img
     (writeShellScriptBin "me3" "/home/tom/.local/bin/me3")
     ];
   };
