@@ -110,6 +110,9 @@
     bottles
     ncdu
     parted
+
+    ntfs3g
+    woeusb
     (writeShellScriptBin "me3" "/home/tom/.local/bin/me3")
     ];
   };
