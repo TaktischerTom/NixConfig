@@ -150,10 +150,10 @@
 
   # Minecraft Server Stuff
   nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];
-  systemd.tmpfiles.rules = ''
-    d /srv/minecraft 0755 minecraft minecraft -
-    d /srv/minecraft/fabricLatest 0755 minecraft minecraft -
-  '';
+  systemd.tmpfiles.rules = [
+    "d /srv/minecraft 0755 minecraft minecraft -"
+    "d /srv/minecraft/fabricLatest 0755 minecraft minecraft -"
+  ];
   services.minecraft-servers = {
     enable = true;
     eula = true;
