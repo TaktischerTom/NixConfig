@@ -109,6 +109,7 @@
     thunderbird
     bottles
     ncdu
+    parted
     (writeShellScriptBin "me3" "/home/tom/.local/bin/me3")
     ];
   };
