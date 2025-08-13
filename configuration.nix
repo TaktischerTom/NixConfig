@@ -156,10 +156,10 @@
     dataDir = "/home/tom/Games/Server";
 
     servers = {
-        fabricLatest = {
-          enable = true;
-          package = "pkgs.fabricServers.fabric"
-        };
+      fabricLatest = {
+        enable = true;
+        package = "pkgs.fabricServers.fabric";
+      };
     };
   };
 
