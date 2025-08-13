@@ -150,6 +150,8 @@
 
   # Minecraft Server Stuff
   nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];
+  environment.etc."srv/minecraft".source = "/srv/minecraft";
+  environment.etc."srv/minecraft".mode = "0755";
   services.minecraft-servers = {
     enable = true;
     eula = true;
