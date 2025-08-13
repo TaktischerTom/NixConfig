@@ -116,7 +116,8 @@
 
   imports = [ 
     inputs.aagl.nixosModules.default
-    inputs.nix-minecraft.nixosModules.minecraft-servers 
+    inputs.nix-minecraft.nixosModules.minecraft-servers
+    ./config/minecraft/server-config.nix
   ];
 
   # Enable automatic login for the user.
@@ -154,7 +155,6 @@
     "d /srv/minecraft 0755 minecraft minecraft -"
     "d /srv/minecraft/fabricLatest 0755 minecraft minecraft -"
   ];
-  services.minecraft-servers = import ./config/minecraft/server-config.nix;
 
   programs.nix-ld.enable = true;
 
