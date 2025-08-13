@@ -110,6 +110,7 @@
     bottles
     ncdu
     parted
+    modrinth-app
     (writeShellScriptBin "me3" "/home/tom/.local/bin/me3")
     ];
   };
