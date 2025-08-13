@@ -161,7 +161,9 @@
     servers = {
       fabricLatest = {
         enable = true;
+        autoStart = false;
         package = pkgs.fabricServers.fabric;
+        jvmOpts = "Xms6144M -Xmx8192M";
       };
     };
   };
