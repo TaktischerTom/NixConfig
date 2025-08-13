@@ -153,7 +153,6 @@
   services.minecraft-servers = {
     enable = true;
     eula = true;
-    dataDir = "/home/tom/Games/Server";
 
     servers = {
       fabricLatest = {
