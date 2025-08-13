@@ -110,6 +110,9 @@
     bottles
     ncdu
     parted
+    zoxide
+    fzf
+    atuin
     (writeShellScriptBin "me3" "/home/tom/.local/bin/me3")
     ];
   };
@@ -144,6 +147,8 @@
 
   # Install Flatpak.
   services.flatpak.enable = true;
+
+  programs.bash.blesh.enable = true;
 
   # Install Star Railway Launcher.
   programs.honkers-railway-launcher.enable = true;
@@ -188,8 +193,11 @@
     (writeShellScriptBin "mc" (builtins.readFile "${self}/config/bash/mc.sh"))
   ];
 
-  programs.bash.interactiveShellInit = builtins.readFile "${self}/config/bash/yazi-function.sh";
-
+  programs.bash.interactiveShellInit =
+    builtins.readFile "${self}/config/bash/yazi-function.sh" + ''
+      eval "$(zoxide init --cmd cd bash)"
+      eval "$(atuin init bash)"
+    '';
 
 
 
