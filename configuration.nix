@@ -154,19 +154,7 @@
     "d /srv/minecraft 0755 minecraft minecraft -"
     "d /srv/minecraft/fabricLatest 0755 minecraft minecraft -"
   ];
-  services.minecraft-servers = {
-    enable = true;
-    eula = true;
-
-    servers = {
-      fabricLatest = {
-        enable = true;
-        autoStart = false;
-        package = pkgs.fabricServers.fabric;
-        jvmOpts = "-Xms8192M -Xmx8192M";
-      };
-    };
-  };
+  services.minecraft-servers = import ./config/minecraft/server-config.nix;
 
   programs.nix-ld.enable = true;
 
