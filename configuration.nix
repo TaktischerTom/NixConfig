@@ -161,9 +161,7 @@
     servers = {
       fabricLatest = {
         enable = true;
-        autoStart = false;
         package = pkgs.fabricServers.fabric;
-        jvmOpts = "Xms6144M -Xmx8192M";
       };
     };
   };
@@ -197,9 +195,13 @@
     (yazi.override {
       _7zz = _7zz-rar;  # Support for RAR extraction
     })
+    (writeShellScriptBin "mc" (builtins.readFile "${self}/config/bash/mc.sh"))
   ];
 
   programs.bash.interactiveShellInit = builtins.readFile "${self}/config/bash/yazi-function.sh";
+
+
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
