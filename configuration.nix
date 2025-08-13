@@ -87,7 +87,7 @@
   users.users.tom = {
     isNormalUser = true;
     description = "Tom";
-    extraGroups = [ "networkmanager" "wheel" "openrazer"];
+    extraGroups = [ "networkmanager" "wheel" "openrazer" "minecraft"];
     packages = with pkgs; [
     kdePackages.kate
     vscodium
