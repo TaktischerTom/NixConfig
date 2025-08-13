@@ -109,8 +109,6 @@
     thunderbird
     bottles
     ncdu
-    qemu
-    dmg2img
     (writeShellScriptBin "me3" "/home/tom/.local/bin/me3")
     ];
   };
@@ -165,11 +163,6 @@
 
   hardware.openrazer.enable = true;
   hardware.openrazer.users = ["tom"];
-
-  programs.virt-manager.enable = true;
-  users.groups.libvirtd.members = ["tom"];
-  virtualisation.libvirtd.enable = true;
-  virtualisation.spiceUSBRedirection.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
