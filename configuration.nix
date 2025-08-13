@@ -158,7 +158,7 @@
     servers = {
       fabricLatest = {
         enable = true;
-        package = "pkgs.fabricServers.fabric";
+        package = pkgs.fabricServers.fabric;
       };
     };
   };
