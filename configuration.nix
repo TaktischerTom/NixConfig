@@ -114,6 +114,11 @@
     ];
   };
 
+  imports = [ 
+    inputs.aagl.nixosModules.default
+    inputs.nix-minecraft.nixosModules.minecraft-servers 
+  ];
+
   # Enable automatic login for the user.
   services.displayManager.autoLogin.enable = true;
   services.displayManager.autoLogin.user = "tom";
@@ -142,7 +147,21 @@
   # Install Star Railway Launcher.
   programs.honkers-railway-launcher.enable = true;
   programs.anime-game-launcher.enable = true;
-  imports = [inputs.aagl.nixosModules.default];
+
+  # Minecraft Server Stuff
+  nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];
+  services.minecraft-servers = {
+    enable = true;
+    eula = true;
+    dataDir = "/home/tom/Games/Server";
+
+    servers = {
+        fabricLatest = {
+          enable = true;
+          package = "pkgs.fabricServers.fabric"
+        };
+    };
+  };
 
   programs.nix-ld.enable = true;
 
