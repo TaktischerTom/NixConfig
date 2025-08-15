@@ -6,6 +6,7 @@
     powerOnBoot = true;
     settings.General = {
       experimental = true; # show battery
+      UserspaceHID = true;
 
       # https://www.reddit.com/r/NixOS/comments/1ch5d2p/comment/lkbabax/
       # for pairing bluetooth controller
@@ -15,7 +16,6 @@
       FastConnectable = true;
     };
   };
-  services.blueman.enable = true;
 
   hardware.xpadneo.enable = true; # Enable the xpadneo driver for Xbox One wireless controllers
 
