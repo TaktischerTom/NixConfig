@@ -5,6 +5,7 @@
     enable = true;
     powerOnBoot = true;
     settings.General = {
+      ControllerMode = "bredr";
       experimental = true; # show battery
       UserspaceHID = true;
 
