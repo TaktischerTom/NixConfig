@@ -40,6 +40,7 @@
   # Fonts
   fonts.packages = with pkgs; [
     nerd-fonts.roboto-mono
+    noto-fonts-cjk-sans
   ];
 
   fonts.fontconfig.defaultFonts = {
