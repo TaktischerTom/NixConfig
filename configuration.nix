@@ -37,6 +37,17 @@
     LC_TIME = "de_DE.UTF-8";
   };
 
+  i18n.inputMethod = {
+    enable = true;
+    type = "fcitx5";
+    fcitx5 = {
+      waylandFrontend = true;
+      addons = with pkgs; [
+        fcitx5-mozc
+      ];
+    };
+  }; 
+
   # Fonts
   fonts.packages = with pkgs; [
     nerd-fonts.roboto-mono
