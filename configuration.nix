@@ -113,6 +113,7 @@
     zoxide
     fzf
     atuin
+    btop
     (writeShellScriptBin "me3" "/home/tom/.local/bin/me3")
     ];
   };
