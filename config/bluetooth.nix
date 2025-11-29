@@ -5,9 +5,9 @@
     enable = true;
     powerOnBoot = true;
     settings.General = {
-      ControllerMode = "bredr";
+      # ControllerMode = "bredr";
       experimental = true; # show battery
-      UserspaceHID = true;
+      # UserspaceHID = true;
 
       # https://www.reddit.com/r/NixOS/comments/1ch5d2p/comment/lkbabax/
       # for pairing bluetooth controller
@@ -19,12 +19,12 @@
   };
 
   hardware.xpadneo.enable = true; # Enable the xpadneo driver for Xbox One wireless controllers
+  # hardware.xone.enable = true;
 
   boot = {
     extraModulePackages = with config.boot.kernelPackages; [ xpadneo ];
-    extraModprobeConfig = ''
-      options bluetooth disable_ertm=Y
-    '';
+    # extraModprobeConfig = "options bluetooth disable_ertm=1";
+    # kernelModules = [ "hid_xpadneo" ];
     # connect xbox controller
   };
 }

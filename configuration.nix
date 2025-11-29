@@ -51,27 +51,45 @@
   # Fonts
   fonts.packages = with pkgs; [
     nerd-fonts.roboto-mono
+    noto-fonts
     noto-fonts-cjk-sans
+    noto-fonts-emoji
+    roboto
   ];
 
   fonts.fontconfig.defaultFonts = {
+    serif = ["Roboto"];
+    sansSerif = ["Roboto"];
     monospace = ["RobotoMono Nerd Font"];
+    emoji = ["Noto Color Emoji"];
   };
 
   # Enable the X11 windowing system.
   # You can disable this if you're only using the Wayland session.
-  services.xserver.enable = true;
+  # services.xserver.enable = true;
+  # services.xserver.displayManager.startx.enable = true;
+  # services.xserver.windowManager.openbox.enable = true;
+
 
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
+  # services.displayManager.sddm.enable = true;
+  # services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "eu";
-    variant = "";
-    options = "srvrkeys:none,caps:escape";
+  services.xserver = {
+    exportConfiguration = true;
+    xkb = {
+      layout = "eu";
+      variant = "";
+      options = "caps:escape,lv3:switch";
+    };
   };
+
+  environment.loginShellInit = ''
+    if uwsm check may-start; then
+        exec uwsm start hyprland-uwsm.desktop
+    fi
+  '';
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -102,6 +120,7 @@
     extraGroups = [ "networkmanager" "wheel" "openrazer" "minecraft"];
     packages = with pkgs; [
     kdePackages.kate
+    (inputs.quickshell.packages.${pkgs.system}.default.withModules [kdePackages.qt5compat])
     vscodium
     vesktop
     lutris
@@ -126,6 +145,49 @@
     fzf
     atuin
     btop
+    tofi
+    youtube-music
+    kdePackages.konsole
+    xorg.xrandr
+    xorg.setxkbmap
+    brightnessctl
+    slurp
+    grim
+    hyprpicker
+    grimblast
+    # bibata-cursors
+    wl-clip-persist
+    wl-clipboard
+    xclip
+    # pngquant
+    # cliphist
+    clipnotify
+    playerctl
+    pamixer
+    dialect
+    pavucontrol
+    pwvucontrol
+    socat
+    killall
+    swappy
+    wf-recorder
+    mpv
+    mpg123
+    playerctl
+    pinta
+    jetbrains.idea-ultimate
+    jetbrains.rider
+    dotnet-sdk_8
+    dotnet-sdk_9
+    mono
+    ilspycmd
+    glibc
+    filezilla
+    zip
+    steamtinkerlaunch
+    wget
+    usb-modeswitch
+    usbutils
     (writeShellScriptBin "me3" "/home/tom/.local/bin/me3")
     ];
   };
@@ -137,15 +199,24 @@
     ./config/bluetooth.nix
   ];
 
+
+  environment.variables = {
+    QS_CONFIG_PATH = "/home/tom/amnytas/config/rice/quickshell";
+    XCURSOR_THEME = "Elysia Cursor";
+  };
+
   # Enable automatic login for the user.
-  services.displayManager.autoLogin.enable = true;
-  services.displayManager.autoLogin.user = "tom";
+  #services.displayManager.autoLogin.enable = true;
+  #services.displayManager.autoLogin.user = "tom";
 
   # Install firefox.
   programs.firefox.enable = true;
 
   # Install Steam.
-  programs.steam.enable = true;
+  programs.steam = {
+    enable = true;
+    extraCompatPackages = [pkgs.proton-ge-bin];
+  };
 
   # Install Thunar.
   programs.thunar.enable = true;
@@ -162,7 +233,14 @@
   # Install Flatpak.
   services.flatpak.enable = true;
 
+  services.blueman.enable = true;
+
   programs.bash.blesh.enable = true;
+
+  programs.hyprland = {
+    enable = true;
+    withUWSM = true;
+  };
 
   # Install Star Railway Launcher.
   programs.honkers-railway-launcher.enable = true;
@@ -242,4 +320,8 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "25.05"; # Did you read the comment?
 
+  services = {
+    getty.autologinUser = "tom";
+    getty.autologinOnce = true;
+  };
 }
