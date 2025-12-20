@@ -188,6 +188,9 @@
     wget
     usb-modeswitch
     usbutils
+    obs-studio
+    video-trimmer
+    ffmpeg_7
     (writeShellScriptBin "me3" "/home/tom/.local/bin/me3")
     ];
   };
@@ -283,6 +286,7 @@
       _7zz = _7zz-rar;  # Support for RAR extraction
     })
     (writeShellScriptBin "mc" (builtins.readFile "${self}/config/bash/mc.sh"))
+    (writeShellScriptBin "tomp4" (builtins.readFile "${self}/config/video/tomp4.sh"))
   ];
 
   programs.bash.interactiveShellInit =
@@ -323,5 +327,12 @@
   services = {
     getty.autologinUser = "tom";
     getty.autologinOnce = true;
+  };
+
+  environment.shellAliases = {
+    ns = "nh os switch";
+    nb = "nh os boot";
+    sys = "codium ~/SystemConfig";
+    hconf = "codium ~/.config/hypr/";
   };
 }
