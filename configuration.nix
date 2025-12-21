@@ -287,6 +287,7 @@
     })
     (writeShellScriptBin "mc" (builtins.readFile "${self}/config/bash/mc.sh"))
     (writeShellScriptBin "tomp4" (builtins.readFile "${self}/config/video/tomp4.sh"))
+    (writeShellScriptBin "clipper" (builtins.readFile "${self}/config/video/clipper.sh"))
   ];
 
   programs.bash.interactiveShellInit =
