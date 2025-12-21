@@ -200,6 +200,7 @@
     inputs.nix-minecraft.nixosModules.minecraft-servers
     ./config/minecraft/server-config.nix
     ./config/bluetooth.nix
+    ./flatpaks.nix
   ];
 
 
@@ -232,9 +233,6 @@
 
   # Install Gamescope.
   programs.gamescope.enable = true;
-
-  # Install Flatpak.
-  services.flatpak.enable = true;
 
   services.blueman.enable = true;
 
