@@ -1,19 +1,24 @@
 # /etc/nixos/flatpaks.nix
+{ config, pkgs, ... }:
+
 {
+  # Enable flatpak globally
   services.flatpak.enable = true;
 
-  services.flatpak.remotes = {
-    flathub = {
-      url = "https://flathub.org/repo/flathub.flatpakrepo";
-      system = true;
-    };
+  # Systemd service to add Flathub remote declaratively
+  systemd.services.flatpak-repo = {
+    wantedBy = [ "multi-user.target" ];
+    path = [ pkgs.flatpak ];
+    script = ''
+      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    '';
   };
 
-  services.flatpak.packages = [
-    {
-      name = "dev.goats.xivlauncher";
-      remote = "flathub";
-      system = true;
-    }
-  ];
+  systemd.services.flatpak-apps = {
+    wantedBy = [ "multi-user.target" ];
+    path = [ pkgs.flatpak ];
+    script = ''
+      flatpak install -y --system flathub dev.goats.xivlauncher
+    '';
+  };
 }

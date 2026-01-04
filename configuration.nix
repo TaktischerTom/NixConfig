@@ -132,7 +132,6 @@
     extra-cmake-modules
     protontricks
     python311
-    xivlauncher
     xorg.xrdb
     linuxHeaders
     openrazer-daemon
@@ -191,6 +190,8 @@
     obs-studio
     video-trimmer
     ffmpeg_7
+    streamcontroller
+    qpwgraph
     (writeShellScriptBin "me3" "/home/tom/.local/bin/me3")
     ];
   };
@@ -333,5 +334,7 @@
     nb = "nh os boot";
     sys = "codium ~/SystemConfig";
     hconf = "codium ~/.config/hypr/";
+    steam = "steam -console";
+    audio = "qpwgraph";
   };
 }
