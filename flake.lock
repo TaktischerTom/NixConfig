@@ -156,6 +156,21 @@
         "type": "github"
       }
     },
+    "nixpkgs_4": {
+      "locked": {
+        "lastModified": 1753489912,
+        "narHash": "sha256-uDCFHeXdRIgJpYmtcUxGEsZ+hYlLPBhR83fdU+vbC1s=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "13e8d35b7d6028b7198f8186bc0347c6abaa2701",
+        "type": "github"
+      },
+      "original": {
+        "id": "nixpkgs",
+        "ref": "nixos-25.05",
+        "type": "indirect"
+      }
+    },
     "prismlauncher": {
       "inputs": {
         "libnbtplusplus": "libnbtplusplus",
@@ -175,6 +190,24 @@
       "original": {
         "owner": "PrismLauncher",
         "repo": "PrismLauncher",
+        "type": "github"
+      }
+    },
+    "putah": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_4"
+      },
+      "locked": {
+        "lastModified": 1754731464,
+        "narHash": "sha256-vUDV0/j5RrER90G43Cb1fFpQc13CgmKnjJ8+PoozUXY=",
+        "owner": "QuetzColito",
+        "repo": "putah",
+        "rev": "801d60086f6d68b445bf350c1b9737ef8b6a1024",
+        "type": "github"
+      },
+      "original": {
+        "owner": "QuetzColito",
+        "repo": "putah",
         "type": "github"
       }
     },
@@ -220,6 +253,7 @@
         "nix-minecraft": "nix-minecraft",
         "nixpkgs": "nixpkgs_3",
         "prismlauncher": "prismlauncher",
+        "putah": "putah",
         "quickshell": "quickshell"
       }
     },

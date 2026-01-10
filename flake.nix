@@ -25,6 +25,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
+    putah.url = "github:QuetzColito/putah";
   };
 
   outputs = {

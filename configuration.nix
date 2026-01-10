@@ -55,6 +55,7 @@
     noto-fonts-cjk-sans
     noto-fonts-emoji
     roboto
+    freetype
   ];
 
   fonts.fontconfig.defaultFonts = {
@@ -74,6 +75,7 @@
   # Enable the KDE Plasma Desktop Environment.
   # services.displayManager.sddm.enable = true;
   # services.desktopManager.plasma6.enable = true;
+  # services.displayManager.sddm.wayland.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
@@ -119,80 +121,102 @@
     description = "Tom";
     extraGroups = [ "networkmanager" "wheel" "openrazer" "minecraft"];
     packages = with pkgs; [
-    kdePackages.kate
-    (inputs.quickshell.packages.${pkgs.system}.default.withModules [kdePackages.qt5compat])
-    vscodium
-    vesktop
-    lutris
-    wineWowPackages.full
-    git
-    cmake
-    libgcc
-    gettext
-    extra-cmake-modules
-    protontricks
-    python311
-    xorg.xrdb
-    linuxHeaders
-    openrazer-daemon
-    razergenie
-    thunderbird
-    bottles
-    ncdu
-    parted
-    zoxide
-    fzf
-    atuin
-    btop
-    tofi
-    youtube-music
-    kdePackages.konsole
-    xorg.xrandr
-    xorg.setxkbmap
-    brightnessctl
-    slurp
-    grim
-    hyprpicker
-    grimblast
-    # bibata-cursors
-    wl-clip-persist
-    wl-clipboard
-    xclip
-    # pngquant
-    # cliphist
-    clipnotify
-    playerctl
-    pamixer
-    dialect
-    pavucontrol
-    pwvucontrol
-    socat
-    killall
-    swappy
-    wf-recorder
-    mpv
-    mpg123
-    playerctl
-    pinta
-    jetbrains.idea-ultimate
-    jetbrains.rider
-    dotnet-sdk_8
-    dotnet-sdk_9
-    mono
-    ilspycmd
-    glibc
-    filezilla
-    zip
-    steamtinkerlaunch
-    wget
-    usb-modeswitch
-    usbutils
-    obs-studio
-    video-trimmer
-    ffmpeg_7
-    streamcontroller
-    qpwgraph
-    (writeShellScriptBin "me3" "/home/tom/.local/bin/me3")
+      kdePackages.kate
+      (inputs.quickshell.packages.${pkgs.system}.default.withModules [kdePackages.qt5compat])
+      vscodium
+      vesktop
+      lutris
+      wineWowPackages.full
+      git
+      cmake
+      libgcc
+      gettext
+      extra-cmake-modules
+      protontricks
+      python311
+      xorg.xrdb
+      linuxHeaders
+      openrazer-daemon
+      razergenie
+      thunderbird
+      bottles
+      ncdu
+      parted
+      zoxide
+      fzf
+      atuin
+      btop
+      tofi
+      youtube-music
+      kdePackages.konsole
+      xorg.xrandr
+      xorg.setxkbmap
+      brightnessctl
+      slurp
+      grim
+      hyprpicker
+      grimblast
+      # bibata-cursors
+      wl-clip-persist
+      wl-clipboard
+      xclip
+      # pngquant
+      # cliphist
+      clipnotify
+      playerctl
+      pamixer
+      dialect
+      pavucontrol
+      pwvucontrol
+      socat
+      killall
+      swappy
+      wf-recorder
+      mpv
+      mpg123
+      playerctl
+      pinta
+      jetbrains.idea-ultimate
+      jetbrains.rider
+      dotnet-sdk_8
+      dotnet-sdk_9
+      mono
+      ilspycmd
+      glibc
+      filezilla
+      zip
+      steamtinkerlaunch
+      wget
+      usb-modeswitch
+      usbutils
+      obs-studio
+      video-trimmer
+      ffmpeg_7
+      streamcontroller
+      qpwgraph
+      (writeShellScriptBin "me3" "/home/tom/.local/bin/me3")
+      inputs.putah.packages.${pkgs.stdenv.system}.putah
+
+
+      # KDE
+      # kdePackages.discover # Optional: Install if you use Flatpak or fwupd firmware update sevice
+      # kdePackages.kcalc # Calculator
+      # kdePackages.kcharselect # Tool to select and copy special characters from all installed fonts
+      # kdePackages.kclock # Clock app
+      # kdePackages.kcolorchooser # A small utility to select a color
+      # kdePackages.kolourpaint # Easy-to-use paint program
+      # kdePackages.ksystemlog # KDE SystemLog Application
+      # kdePackages.sddm-kcm # Configuration module for SDDM
+      # kdiff3 # Compares and merges 2 or 3 files or directories
+      # kdePackages.isoimagewriter # Optional: Program to write hybrid ISO files onto USB disks
+      # kdePackages.partitionmanager # Optional: Manage the disk devices, partitions and file systems on your computer
+      # # Non-KDE graphical packages
+      # hardinfo2 # System information and benchmarks for Linux systems
+      # vlc # Cross-platform media player and streaming server
+      # wayland-utils # Wayland utilities
+      # kdePackages.plasma-workspace
+      # kdePackages.kwin
+      # kdePackages.kde-gtk-config
     ];
   };
 
@@ -285,9 +309,12 @@
       _7zz = _7zz-rar;  # Support for RAR extraction
     })
     (writeShellScriptBin "mc" (builtins.readFile "${self}/config/bash/mc.sh"))
+    (writeShellScriptBin "protonhax" (builtins.readFile "${self}/config/bash/protonhax.sh"))
     (writeShellScriptBin "tomp4" (builtins.readFile "${self}/config/video/tomp4.sh"))
     (writeShellScriptBin "clipper" (builtins.readFile "${self}/config/video/clipper.sh"))
   ];
+
+  systemd.settings.Manager.DefaultTimeoutStopSec = "20s";
 
   programs.bash.interactiveShellInit =
     builtins.readFile "${self}/config/bash/yazi-function.sh" + ''
