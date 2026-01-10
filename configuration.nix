@@ -309,6 +309,7 @@
       _7zz = _7zz-rar;  # Support for RAR extraction
     })
     (writeShellScriptBin "mc" (builtins.readFile "${self}/config/bash/mc.sh"))
+    (writeShellScriptBin "workspace-direction" (builtins.readFile "${self}/config/bash/workspace-direction.sh"))
     (writeShellScriptBin "protonhax" (builtins.readFile "${self}/config/bash/protonhax.sh"))
     (writeShellScriptBin "tomp4" (builtins.readFile "${self}/config/video/tomp4.sh"))
     (writeShellScriptBin "clipper" (builtins.readFile "${self}/config/video/clipper.sh"))
