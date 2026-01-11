@@ -196,6 +196,7 @@
       qpwgraph
       (writeShellScriptBin "me3" "/home/tom/.local/bin/me3")
       inputs.putah.packages.${pkgs.stdenv.system}.putah
+      jq
 
 
       # KDE
@@ -313,6 +314,7 @@
     (writeShellScriptBin "protonhax" (builtins.readFile "${self}/config/bash/protonhax.sh"))
     (writeShellScriptBin "tomp4" (builtins.readFile "${self}/config/video/tomp4.sh"))
     (writeShellScriptBin "clipper" (builtins.readFile "${self}/config/video/clipper.sh"))
+    (writeShellScriptBin "warframe" (builtins.readFile "${self}/config/steam/warframe.sh"))
   ];
 
   systemd.settings.Manager.DefaultTimeoutStopSec = "20s";
