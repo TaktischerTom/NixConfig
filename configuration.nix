@@ -315,6 +315,7 @@
     (writeShellScriptBin "tomp4" (builtins.readFile "${self}/config/video/tomp4.sh"))
     (writeShellScriptBin "clipper" (builtins.readFile "${self}/config/video/clipper.sh"))
     (writeShellScriptBin "warframe" (builtins.readFile "${self}/config/steam/warframe.sh"))
+    (writeShellScriptBin "Guild Wars 2" (builtins.readFile "${self}/config/steam/guildwars2.sh"))
   ];
 
   systemd.settings.Manager.DefaultTimeoutStopSec = "20s";
