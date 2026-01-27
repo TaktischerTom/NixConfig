@@ -194,9 +194,13 @@
       ffmpeg_7
       streamcontroller
       qpwgraph
+      jdk21
+      waywall
       (writeShellScriptBin "me3" "/home/tom/.local/bin/me3")
       inputs.putah.packages.${pkgs.stdenv.system}.putah
       jq
+      desmume
+      unzip
 
 
       # KDE
@@ -316,6 +320,7 @@
     (writeShellScriptBin "clipper" (builtins.readFile "${self}/config/video/clipper.sh"))
     (writeShellScriptBin "warframe" (builtins.readFile "${self}/config/steam/warframe.sh"))
     (writeShellScriptBin "Guild_Wars_2" (builtins.readFile "${self}/config/steam/guildwars2.sh"))
+    (writeShellScriptBin "kaomoji" (builtins.readFile "${self}/config/bash/wofi-kaomoji"))
   ];
 
   systemd.settings.Manager.DefaultTimeoutStopSec = "20s";
@@ -367,5 +372,6 @@
     hconf = "codium ~/.config/hypr/";
     steam = "steam -console";
     audio = "qpwgraph";
+    nintendo = "desmume";
   };
 }
