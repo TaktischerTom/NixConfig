@@ -320,7 +320,7 @@
     (writeShellScriptBin "clipper" (builtins.readFile "${self}/config/video/clipper.sh"))
     (writeShellScriptBin "warframe" (builtins.readFile "${self}/config/steam/warframe.sh"))
     (writeShellScriptBin "Guild_Wars_2" (builtins.readFile "${self}/config/steam/guildwars2.sh"))
-    (writeShellScriptBin "kaomoji" (builtins.readFile "${self}/config/bash/wofi-kaomoji"))
+    (writeShellScriptBin "kaomoji" (builtins.readFile "${self}/config/bash/wofi-kaomoji.sh"))
   ];
 
   systemd.settings.Manager.DefaultTimeoutStopSec = "20s";
