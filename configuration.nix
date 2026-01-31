@@ -124,7 +124,6 @@
       kdePackages.kate
       (inputs.quickshell.packages.${pkgs.system}.default.withModules [kdePackages.qt5compat])
       vscodium
-      vesktop
       lutris
       wineWowPackages.full
       git
@@ -201,6 +200,7 @@
       jq
       desmume
       unzip
+      discord
 
 
       # KDE
@@ -268,6 +268,8 @@
 
   programs.bash.blesh.enable = true;
 
+  programs.noisetorch.enable = true;
+
   programs.hyprland = {
     enable = true;
     withUWSM = true;
@@ -320,7 +322,6 @@
     (writeShellScriptBin "clipper" (builtins.readFile "${self}/config/video/clipper.sh"))
     (writeShellScriptBin "warframe" (builtins.readFile "${self}/config/steam/warframe.sh"))
     (writeShellScriptBin "Guild_Wars_2" (builtins.readFile "${self}/config/steam/guildwars2.sh"))
-    (writeShellScriptBin "kaomoji" (builtins.readFile "${self}/config/bash/wofi-kaomoji.sh"))
   ];
 
   systemd.settings.Manager.DefaultTimeoutStopSec = "20s";
