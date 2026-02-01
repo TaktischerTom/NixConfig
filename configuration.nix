@@ -326,6 +326,7 @@
     (writeShellScriptBin "nintendo" "desmume")
     (writeShellScriptBin "audio" "qpwgraph")
     (writeShellScriptBin "kon" "foot")
+    (writeShellScriptBin "steamConsole" "steam -console")
   ];
 
   systemd.settings.Manager.DefaultTimeoutStopSec = "20s";
@@ -375,6 +376,5 @@
     nb = "nh os boot";
     nu = "nix flake update --flake /home/tom/SystemConfig/ --commit-lock-file";
     sys = "codium ~/SystemConfig";
-    steam = "steam -console";
   };
 }
