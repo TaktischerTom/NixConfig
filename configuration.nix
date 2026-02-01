@@ -122,7 +122,7 @@
     extraGroups = [ "networkmanager" "wheel" "openrazer" "minecraft"];
     packages = with pkgs; [
       kdePackages.kate
-      (inputs.quickshell.packages.${pkgs.system}.default.withModules [kdePackages.qt5compat])
+      (inputs.quickshell.packages.${pkgs.stdenv.system}.default.withModules [kdePackages.qt5compat])
       vscodium
       lutris
       wineWowPackages.full
