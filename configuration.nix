@@ -231,6 +231,8 @@
     ./config/minecraft/server-config.nix
     ./config/bluetooth.nix
     ./flatpaks.nix
+    ./variables.nix
+    ./symLinks.nix
   ];
 
 
