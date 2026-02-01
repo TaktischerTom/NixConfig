@@ -147,7 +147,7 @@
       btop
       tofi
       youtube-music
-      kdePackages.konsole
+      foot
       xorg.xrandr
       xorg.setxkbmap
       brightnessctl
@@ -324,6 +324,7 @@
     (writeShellScriptBin "Guild_Wars_2" (builtins.readFile "${self}/config/steam/guildwars2.sh"))
     (writeShellScriptBin "nintendo" "desmume")
     (writeShellScriptBin "audio" "qpwgraph")
+    (writeShellScriptBin "kon" "foot")
   ];
 
   systemd.settings.Manager.DefaultTimeoutStopSec = "20s";
