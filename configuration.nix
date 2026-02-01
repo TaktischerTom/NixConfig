@@ -202,6 +202,7 @@
       unzip
       vesktop
       uwsm
+      inputs.prismlauncher.packages.${pkgs.stdenv.system}.prismlauncher
 
       # KDE
       # kdePackages.discover # Optional: Install if you use Flatpak or fwupd firmware update sevice

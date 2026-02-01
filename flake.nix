@@ -43,11 +43,6 @@
         ./configuration.nix
         ./hardware-configuration.nix
         {nixpkgs.hostPlatform = system;}
-        {
-          environment.systemPackages = [
-            inputs.prismlauncher.packages.${pkgs.stdenv.system}.prismlauncher
-          ];
-        }
       ];
     };
   };
