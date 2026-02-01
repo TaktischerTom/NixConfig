@@ -240,6 +240,7 @@
 
   environment.variables = {
     QS_CONFIG_PATH = "/home/tom/amnytas/config/rice/quickshell";
+    EDITOR = "codium";
     XCURSOR_THEME = "Elysia Cursor";
   };
 
