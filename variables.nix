@@ -7,5 +7,5 @@
       default = "tom";
       type = lib.types.str;
     };
-  }
+  };
 }
