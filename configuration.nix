@@ -53,7 +53,7 @@
     nerd-fonts.roboto-mono
     noto-fonts
     noto-fonts-cjk-sans
-    noto-fonts-emoji
+    noto-fonts-color-emoji
     roboto
     freetype
   ];
@@ -202,7 +202,6 @@
       unzip
       discord
 
-
       # KDE
       # kdePackages.discover # Optional: Install if you use Flatpak or fwupd firmware update sevice
       # kdePackages.kcalc # Calculator
@@ -324,6 +323,8 @@
     (writeShellScriptBin "clipper" (builtins.readFile "${self}/config/video/clipper.sh"))
     (writeShellScriptBin "warframe" (builtins.readFile "${self}/config/steam/warframe.sh"))
     (writeShellScriptBin "Guild_Wars_2" (builtins.readFile "${self}/config/steam/guildwars2.sh"))
+    (writeShellScriptBin "nintendo" "desmume")
+    (writeShellScriptBin "audio" "qpwgraph")
   ];
 
   systemd.settings.Manager.DefaultTimeoutStopSec = "20s";
@@ -373,9 +374,6 @@
     nb = "nh os boot";
     nu = "nix flake update --flake /home/tom/SystemConfig/ --commit-lock-file";
     sys = "codium ~/SystemConfig";
-    hconf = "codium ~/.config/hypr/";
     steam = "steam -console";
-    audio = "qpwgraph";
-    nintendo = "desmume";
   };
 }
