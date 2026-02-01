@@ -89,7 +89,7 @@
 
   environment.loginShellInit = ''
     if uwsm check may-start; then
-        exec uwsm start hyprland-uwsm.desktop
+        start-hyprland
     fi
   '';
 
@@ -200,7 +200,8 @@
       jq
       desmume
       unzip
-      discord
+      vesktop
+      uwsm
 
       # KDE
       # kdePackages.discover # Optional: Install if you use Flatpak or fwupd firmware update sevice
@@ -269,11 +270,8 @@
 
   programs.bash.blesh.enable = true;
 
-  programs.noisetorch.enable = true;
-
   programs.hyprland = {
     enable = true;
-    withUWSM = true;
   };
 
   # Install Star Railway Launcher.

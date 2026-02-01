@@ -45,7 +45,7 @@
         {nixpkgs.hostPlatform = system;}
         {
           environment.systemPackages = [
-            inputs.prismlauncher.packages.${system}.prismlauncher
+            inputs.prismlauncher.packages.${pkgs.stdenv.system}.prismlauncher
           ];
         }
       ];
