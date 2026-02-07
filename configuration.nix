@@ -204,6 +204,7 @@
       uwsm
       inputs.prismlauncher.packages.${pkgs.stdenv.system}.prismlauncher
       alvr
+      keepassxc
 
       # KDE
       # kdePackages.discover # Optional: Install if you use Flatpak or fwupd firmware update sevice
@@ -328,6 +329,7 @@
     (writeShellScriptBin "audio" "qpwgraph")
     (writeShellScriptBin "kon" "foot")
     (writeShellScriptBin "steamConsole" "steam -console")
+    (writeShellScriptBin "pass" "keepassxc")
   ];
 
   systemd.settings.Manager.DefaultTimeoutStopSec = "20s";
