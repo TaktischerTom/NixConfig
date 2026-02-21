@@ -1,11 +1,7 @@
-# /etc/nixos/flatpaks.nix
-{ config, pkgs, ... }:
-
+{ pkgs, ... }:
 {
-  # Enable flatpak globally
   services.flatpak.enable = true;
 
-  # Systemd service to add Flathub remote declaratively
   systemd.services.flatpak-repo = {
     wantedBy = [ "multi-user.target" ];
     path = [ pkgs.flatpak ];
