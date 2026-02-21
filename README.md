@@ -7,7 +7,7 @@ Originally a single monolithic file, it has been restructured into a modular arc
 |---|---|
 | **Hostname** | `nixos` |
 | **User** | `tom` |
-| **Desktop** | Hyprland (Wayland) — 3 monitors |
+| **Desktop** | Hyprland (Wayland) |
 | **Channel** | `nixpkgs-unstable` |
 | **Architecture** | `x86_64-linux` |
 
