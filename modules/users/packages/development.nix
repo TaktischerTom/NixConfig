@@ -29,7 +29,6 @@
     python311
     jdk21
     nodejs_25
-    nodePackages."@angular/cli"
 
     # CLI dev tools
     jq
