@@ -15,8 +15,10 @@
     # Emulators
     desmume
     waywall
+    waydroid
 
     # VR
     alvr
+    bs-manager
   ];
 }
