@@ -15,10 +15,16 @@
     # Emulators
     desmume
     waywall
-    waydroid
 
     # VR
     alvr
     bs-manager
   ];
+
+  # Waydroid
+  virtualisation.waydroid = {
+    enable = true;
+    # necessary because kernel >= 6.17
+    package = pkgs.waydroid-nftables;
+  };
 }
