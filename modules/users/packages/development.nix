@@ -26,7 +26,6 @@
     ilspycmd
 
     # Languages & runtimes
-    python311
     jdk21
     nodejs_25
 

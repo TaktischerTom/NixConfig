@@ -8,7 +8,6 @@
     inputs.putah.packages.${pkgs.stdenv.system}.putah
 
     # Wine & Proton
-    wineWowPackages.full
     protontricks
     steamtinkerlaunch
 
