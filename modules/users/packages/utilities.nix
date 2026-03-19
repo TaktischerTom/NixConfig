@@ -18,6 +18,7 @@
     parted
     usb-modeswitch
     usbutils
+    hyprpolkitagent
 
     # Communication
     thunderbird
