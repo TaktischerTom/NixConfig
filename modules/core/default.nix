@@ -6,5 +6,6 @@
     ./locale.nix
     ./nix-settings.nix
     ./variables.nix
+    ./security.nix
   ];
 }
