@@ -14,6 +14,7 @@
 
   programs.honkers-railway-launcher.enable = true;
   programs.anime-game-launcher.enable = true;
+  programs.sleepy-launcher.enable = true;
 
   nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];
   systemd.tmpfiles.rules = [
