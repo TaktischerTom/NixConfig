@@ -6,6 +6,7 @@
     bottles
     inputs.prismlauncher.packages.${pkgs.stdenv.system}.prismlauncher
     inputs.putah.packages.${pkgs.stdenv.system}.putah
+    r2modman
 
     # Wine & Proton
     protontricks
