@@ -32,6 +32,9 @@
     openrazer-daemon
     razergenie
 
+    # Language stuff
+    anki
+
     # Custom wrappers
     (writeShellScriptBin "me3" "/home/tom/.local/bin/me3")
   ];
