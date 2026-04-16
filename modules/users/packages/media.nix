@@ -23,6 +23,7 @@
     # Image editing
     pinta
     krita
+    gimp
     imagemagick
   ];
 }
