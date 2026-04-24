@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   users.users.tom.packages = with pkgs; [
     # Audio playback & control
@@ -25,5 +25,6 @@
     krita
     gimp
     imagemagick
+    inputs.ie-r.packages.${pkgs.stdenv.system}.default
   ];
 }
