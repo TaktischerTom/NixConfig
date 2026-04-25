@@ -6,6 +6,7 @@
     fzf
     atuin
     btop
+    evtest
 
     # File management
     ncdu
