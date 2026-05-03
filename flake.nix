@@ -27,7 +27,10 @@
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
     putah.url = "github:QuetzColito/putah";
     # IE-R
-    ie-r.url = "github:miaupaw/ie-r";
+    ie-r = {
+      url = "github:miaupaw/ie-r";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
