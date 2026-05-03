@@ -16,5 +16,8 @@
     XR_RUNTIME_JSON = "$HOME/.local/share/Steam/steamapps/common/SteamVR/steamxr_linux64.json";
   };
 
-  environment.sessionVariables.XR_RUNTIME_JSON = "$HOME/.local/share/Steam/steamapps/common/SteamVR/steamxr_linux64.json";
+  environment.sessionVariables = {
+    YDOTOOL_SOCKET = "/run/user/1000/ydotoold/socket";
+    XR_RUNTIME_JSON = "$HOME/.local/share/Steam/steamapps/common/SteamVR/steamxr_linux64.json";
+  };
 }

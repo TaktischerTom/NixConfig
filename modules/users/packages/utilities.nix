@@ -7,6 +7,7 @@
     atuin
     btop
     evtest
+    ydotool
 
     # File management
     ncdu
