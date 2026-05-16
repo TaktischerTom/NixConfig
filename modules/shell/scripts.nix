@@ -5,6 +5,7 @@
       _7zz = _7zz-rar;
     })
     (writeShellScriptBin "mc" (builtins.readFile "${self}/scripts/mc.sh"))
+    (writeShellScriptBin "vpn" (builtins.readFile "${self}/scripts/vpn.sh"))
     (writeShellScriptBin "workspace-direction" (builtins.readFile "${self}/scripts/workspace-direction.sh"))
     (writeShellScriptBin "protonhax" (builtins.readFile "${self}/scripts/protonhax.sh"))
     (writeShellScriptBin "tomp4" (builtins.readFile "${self}/scripts/tomp4.sh"))
