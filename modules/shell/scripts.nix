@@ -18,5 +18,6 @@
     (writeShellScriptBin "pass" "keepassxc")
     (writeShellScriptBin "arknights" "waydroid app launch com.YoStarEN.Arknights")
     (writeShellScriptBin "playStore" "waydroid app launch com.android.vending")
+    (writeShellScriptBin "autoclicker" ''while true; do ydotool click 0xC0; sleep "$1"; done'')
   ];
 }
