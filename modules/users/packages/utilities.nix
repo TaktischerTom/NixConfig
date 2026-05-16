@@ -15,6 +15,7 @@
     zip
     unzip
     wget
+    qbittorrent
 
     # System tools
     parted
