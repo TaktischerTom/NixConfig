@@ -28,6 +28,7 @@
     # Languages & runtimes
     jdk21
     nodejs_25
+    python3
 
     # CLI dev tools
     jq
