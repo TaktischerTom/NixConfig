@@ -7,6 +7,7 @@
     (writeShellScriptBin "mc" (builtins.readFile "${self}/scripts/mc.sh"))
     (writeShellScriptBin "vpn" (builtins.readFile "${self}/scripts/vpn.sh"))
     (writeShellScriptBin "workspace-direction" (builtins.readFile "${self}/scripts/workspace-direction.sh"))
+    (writeShellScriptBin "wanikani-launch" (builtins.readFile "${self}/scripts/wanikani-launch.sh"))
     (writeShellScriptBin "protonhax" (builtins.readFile "${self}/scripts/protonhax.sh"))
     (writeShellScriptBin "tomp4" (builtins.readFile "${self}/scripts/tomp4.sh"))
     (writeShellScriptBin "clipper" (builtins.readFile "${self}/scripts/clipper.sh"))
