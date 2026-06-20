@@ -19,9 +19,9 @@
 
     # System tools
     parted
-    usb-modeswitch
     usbutils
     hyprpolkitagent
+    usb-modeswitch
 
     # Communication
     thunderbird
@@ -31,14 +31,17 @@
     # Security
     keepassxc
 
-    # Razer peripherals
+    # Devices
     openrazer-daemon
     razergenie
+    oversteer
 
     # Language stuff
     anki
 
     # Custom wrappers
     (writeShellScriptBin "me3" "/home/tom/.local/bin/me3")
+
+    
   ];
 }
