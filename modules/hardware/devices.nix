@@ -2,6 +2,11 @@
 {
   boot.kernelModules = [ "hid-logitech-hidpp" ];
 
+  fileSystems."/home/tom/HDD" = {
+    device = "/dev/disk/by-uuid/0c69e7a3-4d48-4a50-86f9-5b746c619dd9";
+    fsType = "ext4";
+  };
+
   hardware.usb-modeswitch.enable = true;
 
   services.udev.packages = [ pkgs.oversteer ];
