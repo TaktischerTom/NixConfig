@@ -13,12 +13,7 @@
 
   # Required for WireGuard clients
   networking.firewall.checkReversePath = "loose";
-  
-  security.sudo.extraRules = [{
-    groups = [ "wheel" ];
-    commands = [
-      { command = "/run/current-system/sw/bin/wg"; options = [ "NOPASSWD" ]; }
-      { command = "/run/current-system/sw/bin/wg-quick"; options = [ "NOPASSWD" ]; }
-    ];
-  }];
+
+  # NOTE: sudo rules for the VPN live in ./vpn-netns.nix, which drives the
+  # network-namespace-based tunnel.
 }
