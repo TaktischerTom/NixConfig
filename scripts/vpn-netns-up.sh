@@ -48,6 +48,11 @@ ip link del "$IFACE" 2>/dev/null || true
 ip netns add "$NS"
 ip -n "$NS" link set lo up
 
+if ! echo "$address" | grep -q ':'; then
+    ip netns exec "$NS" sysctl -qw net.ipv6.conf.all.disable_ipv6=1
+    ip netns exec "$NS" sysctl -qw net.ipv6.conf.default.disable_ipv6=1
+fi
+
 ip link add "$IFACE" type wireguard
 ip link set "$IFACE" netns "$NS"
 
@@ -69,6 +74,9 @@ ip -n "$NS" route add default dev "$IFACE"
 if echo "$address" | grep -q ':'; then
     ip -n "$NS" -6 route add default dev "$IFACE" 2>/dev/null || true
 fi
+
+ip netns exec "$NS" iptables -t mangle -A POSTROUTING -o "$IFACE" \
+    -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu 2>/dev/null || true
 
 mkdir -p "/etc/netns/$NS"
 if [ -n "$dns" ]; then
