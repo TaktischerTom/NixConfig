@@ -22,6 +22,32 @@ EOF
       fi
     '';
   };
+
+  # HakuNeko wrapped so it ALWAYS launches inside the "vpn" network
+  # and always uses --no-sandbox
+  hakunekoVpn = pkgs.symlinkJoin {
+    name = "hakuneko-vpn";
+    paths = [ pkgs.hakuneko ];
+    postBuild = ''
+      rm "$out/bin/hakuneko"
+      cat > "$out/bin/hakuneko" <<EOF
+#!${pkgs.runtimeShell}
+exec /run/current-system/sw/bin/vpn-run ${pkgs.hakuneko}/bin/hakuneko --no-sandbox "\$@"
+EOF
+      chmod +x "$out/bin/hakuneko"
+
+      if [ -e "$out/share/applications" ]; then
+        for desktop in "$out/share/applications/"*.desktop; do
+          if [ -e "$desktop" ]; then
+            substitute "$desktop" "$desktop.tmp" \
+              --replace-quiet "${pkgs.hakuneko}/bin/hakuneko" "$out/bin/hakuneko" \
+              --replace-quiet "Exec=haku" "Exec=$out/bin/hakuneko"
+            mv "$desktop.tmp" "$desktop"
+          fi
+        done
+      fi
+    '';
+  };
 in
 {
   environment.systemPackages = with pkgs; [
@@ -29,6 +55,7 @@ in
     (writeShellScriptBin "vpn-netns-down" (builtins.readFile "${self}/scripts/vpn-netns-down.sh"))
     (writeShellScriptBin "vpn-run" (builtins.readFile "${self}/scripts/vpn-run.sh"))
     qbittorrentVpn
+    hakunekoVpn
   ];
 
   security.sudo.extraRules = [{
