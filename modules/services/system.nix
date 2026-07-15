@@ -24,6 +24,5 @@
     wantedBy = [ "default.target" ];
   };
 
-
   services.power-profiles-daemon.enable = true;
 }

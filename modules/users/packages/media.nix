@@ -26,5 +26,9 @@
     gimp
     imagemagick
     inputs.ie-r.packages.${pkgs.stdenv.system}.default
+
+    # Storage
+    maestral
+    maestral-gui
   ];
 }
