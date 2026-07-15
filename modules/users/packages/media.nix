@@ -26,6 +26,7 @@
     gimp
     imagemagick
     inputs.ie-r.packages.${pkgs.stdenv.system}.default
+    calibre
 
     # Storage
     maestral
