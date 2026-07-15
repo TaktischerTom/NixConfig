@@ -24,7 +24,8 @@ run_user="${USER:-$(id -un)}"
 env_vars=""
 for v in DISPLAY WAYLAND_DISPLAY XDG_RUNTIME_DIR XAUTHORITY HOME \
          DBUS_SESSION_BUS_ADDRESS PATH QT_QPA_PLATFORM GDK_BACKEND \
-         XDG_DATA_DIRS XDG_CONFIG_HOME LANG; do
+         XDG_DATA_DIRS XDG_CONFIG_HOME LANG WINEPREFIX WINEDLLOVERRIDES \
+         WINEARCH WINEDEBUG; do
     if [ -n "${!v:-}" ]; then
         env_vars+="$v=${!v} "
     fi

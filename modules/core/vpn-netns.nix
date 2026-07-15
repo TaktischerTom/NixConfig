@@ -48,14 +48,34 @@ EOF
       fi
     '';
   };
+
+  # HDoujin portable Wine application wrapped in the VPN namespace
+  hdoujinVpn = pkgs.writeShellScriptBin "HDoujin" ''
+    export WINEPREFIX="$HOME/.wine-hdoujin"
+
+    exec /run/current-system/sw/bin/vpn-run \
+      wine \
+      "$HOME/Programs/HDoujin.Downloader-2025.1.6.2-win/HDoujin Downloader.exe"
+  '';
+
+  hdoujinDesktop = pkgs.makeDesktopItem {
+    name = "hdoujin";
+    desktopName = "HDoujin";
+    exec = "HDoujin";
+    terminal = false;
+    categories = [ "Utility" ];
+  };
 in
 {
   environment.systemPackages = with pkgs; [
     (writeShellScriptBin "vpn-netns-up" (builtins.readFile "${self}/scripts/vpn-netns-up.sh"))
     (writeShellScriptBin "vpn-netns-down" (builtins.readFile "${self}/scripts/vpn-netns-down.sh"))
     (writeShellScriptBin "vpn-run" (builtins.readFile "${self}/scripts/vpn-run.sh"))
+
     qbittorrentVpn
     hakunekoVpn
+    hdoujinVpn
+    hdoujinDesktop
   ];
 
   security.sudo.extraRules = [{

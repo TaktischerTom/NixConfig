@@ -22,6 +22,8 @@
     usbutils
     hyprpolkitagent
     usb-modeswitch
+    wineWow64Packages.stable
+    winetricks
 
     # Communication
     thunderbird
