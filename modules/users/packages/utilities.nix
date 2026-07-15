@@ -13,6 +13,7 @@
     ncdu
     filezilla
     zip
+    _7zz
     unzip
     wget
 
