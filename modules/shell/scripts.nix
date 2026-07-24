@@ -21,6 +21,7 @@
     (writeShellScriptBin "arknights" "waydroid app launch com.YoStarEN.Arknights")
     (writeShellScriptBin "playStore" "waydroid app launch com.android.vending")
     (writeShellScriptBin "ClashOfClans" "waydroid app launch com.supercell.clashofclans")
+    (writeShellScriptBin "Holodori" "waydroid app launch game.qualiarts.hololive.dreams.com")
     (writeShellScriptBin "autoclicker" ''while true; do ydotool click 0xC0; sleep "$1"; done'')
   ];
 }
