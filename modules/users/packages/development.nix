@@ -15,7 +15,7 @@
     cmake
     libgcc
     gettext
-    extra-cmake-modules
+    kdePackages.extra-cmake-modules
     linuxHeaders
     glibc
 
@@ -27,7 +27,7 @@
 
     # Languages & runtimes
     jdk21
-    nodejs_25
+    nodejs_26
     python3
 
     # CLI dev tools
