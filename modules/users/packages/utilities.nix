@@ -24,6 +24,7 @@
     usb-modeswitch
     wineWow64Packages.stable
     winetricks
+    libinput
 
     # Communication
     thunderbird

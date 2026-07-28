@@ -20,4 +20,11 @@
     YDOTOOL_SOCKET = "/run/user/1000/ydotoold/socket";
     XR_RUNTIME_JSON = "$HOME/.local/share/Steam/steamapps/common/SteamVR/steamxr_linux64.json";
   };
+
+  environment.etc."libinput/local-overrides.quirks".text = ''
+    [Waydroid Multi-touch Device Fix]
+    MatchName=silicon-integrated-system-co.-sis-hid-touch-controller
+    ModelTypeTouchscreen=1
+    AttrEventHubDevices=touchscreen
+  '';
 }
