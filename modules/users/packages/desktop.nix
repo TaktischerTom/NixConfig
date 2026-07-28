@@ -24,9 +24,9 @@
 
     # Display & input
     brightnessctl
-    xorg.xrdb
-    xorg.xrandr
-    xorg.setxkbmap
+    xrdb
+    xrandr
+    setxkbmap
 
     # Process management
     socat

@@ -6,7 +6,7 @@
     mpg123
     playerctl
     pamixer
-    youtube-music
+    pear-desktop
 
     # Audio routing
     pavucontrol
