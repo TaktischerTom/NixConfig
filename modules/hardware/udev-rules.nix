@@ -1,5 +1,11 @@
-{ ... }:
+{ pkgs, ... }:
 {
+
+  services.udev.packages = with pkgs; [
+    game-devices-udev-rules
+  ];
+  hardware.uinput.enable = true;
+
   services.udev.extraRules = ''
     SUBSYSTEM=="usb", ATTR{idVendor}=="0fd9", ATTR{idProduct}=="0060", MODE="0660", TAG+="uaccess", GROUP="plugdev"
     SUBSYSTEM=="usb", ATTR{idVendor}=="0fd9", ATTR{idProduct}=="0063", MODE="0660", TAG+="uaccess", GROUP="plugdev"
