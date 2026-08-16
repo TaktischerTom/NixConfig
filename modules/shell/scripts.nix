@@ -18,7 +18,6 @@
     (writeShellScriptBin "kon" "foot")
     (writeShellScriptBin "steamConsole" "steam -console")
     (writeShellScriptBin "pass" "keepassxc")
-    (writeShellScriptBin "arknights" "waydroid app launch com.YoStarEN.Arknights")
     (writeShellScriptBin "playStore" "waydroid app launch com.android.vending")
     (writeShellScriptBin "ClashOfClans" "waydroid app launch com.supercell.clashofclans")
     (writeShellScriptBin "Holodori" "waydroid app launch game.qualiarts.hololive.dreams.com")
