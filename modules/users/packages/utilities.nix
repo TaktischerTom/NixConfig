@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, inputs, ... }:
 {
   users.users.tom.packages = with pkgs; [
     # Shell enhancements
@@ -25,6 +25,7 @@
     wineWow64Packages.stable
     winetricks
     libinput
+    inputs.caelestia-shell.packages.${pkgs.stdenv.hostPlatform.system}.with-cli
 
     # Communication
     thunderbird
@@ -44,7 +45,5 @@
 
     # Custom wrappers
     (writeShellScriptBin "me3" "/home/tom/.local/bin/me3")
-
-    
   ];
 }
