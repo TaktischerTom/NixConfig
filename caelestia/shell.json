@@ -1,0 +1,52 @@
+{
+    "appearance": {
+        "transparency": {
+            "enabled": false
+        }
+    },
+    "background": {
+        "wallpaperEnabled": true
+    },
+    "bar": {
+        "workspaces": {
+            "shown": 3
+        }
+    },
+    "general": {
+        "apps": {
+            "explorer": [
+                "thunar"
+            ]
+        }
+    },
+    "launcher": {
+        "enabled": true
+    },
+    "lock": {
+        "useWallpaper": true
+    },
+    "services": {
+        "defaultPlayer": "Mozilla firefox",
+        "weatherLocation": "51.514343, 7.464670"
+    },
+    "utilities": {
+        "quickToggles": [
+            {
+                "enabled": false,
+                "id": "bluetooth"
+            },
+            {
+                "enabled": false,
+                "id": "mic"
+            },
+            {
+                "enabled": false,
+                "id": "gameMode"
+            },
+            {
+                "enabled": true,
+                "id": "vpn"
+            }
+        ]
+    }
+}
