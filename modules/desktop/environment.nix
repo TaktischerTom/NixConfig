@@ -1,4 +1,4 @@
-{ ... }:
+{ pkgs, ... }:
 {
   services.xserver = {
     exportConfiguration = true;
@@ -26,4 +26,6 @@
     ModelTypeTouchscreen=1
     AttrEventHubDevices=touchscreen
   '';
+
+  environment.etc."/hyprlandstubs".source = "${pkgs.hyprland}/share/hypr/stubs";
 }
