@@ -21,7 +21,7 @@
       ["SystemConfig/hypr/modules" ".config/hypr/modules"]
       ["SystemConfig/hypr/hyprland.conf" ".config/hypr/hyprland.conf"]
       ["SystemConfig/hypr/xdph.conf" ".config/hypr/xdph.conf"]
-      ["SystemConfig/caelestia/" ".config/caelestia/"]
+      ["SystemConfig/caelestia" ".config/caelestia"]
     ];
   };
 }
