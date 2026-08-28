@@ -5,6 +5,7 @@
 -- ############################################################################
 
 local programs = require("modules.programs")
+local utils = require("modules.utils")
 
 local mod = programs.mainMod
 local modShift = mod .. " + SHIFT"
@@ -104,8 +105,8 @@ hl.bind(mod .. " + W", hl.dsp.workspace.toggle_special("wanikani"), { descriptio
 hl.bind(modShift .. " + W", hl.dsp.window.move({ workspace = "special:wanikani" }))
 
 -- Switch workspace direction
-hl.bind(mod .. " + A", hl.dsp.focus({ monitor = "l" }))
-hl.bind(mod .. " + D", hl.dsp.focus({ monitor = "r" }))
+hl.bind(mod .. " + A", utils.direction_focus(-1))
+hl.bind(mod .. " + D", utils.direction_focus(1))
 
 --------------------------------------------------------------------------------
 -- Layout messages
