@@ -5,6 +5,7 @@
     vscodium
     kdePackages.kate
     codebuff
+    godot
 
     # JetBrains
     jetbrains.idea
