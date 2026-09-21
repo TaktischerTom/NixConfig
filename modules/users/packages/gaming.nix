@@ -9,7 +9,6 @@
     r2modman
 
     # Wine & Proton
-    protontricks
     steamtinkerlaunch
 
     # Emulators
