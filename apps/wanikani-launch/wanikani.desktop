@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Wanikani & Bunpro
+Comment=Start Wanikani & Bunpro Browser Profile
+Exec=wanikani-launch
+Icon=/home/tom/SystemConfig/apps/wanikani-launch/icon.png
+Terminal=false
+Categories=Utility;
