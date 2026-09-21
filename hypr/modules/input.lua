@@ -115,10 +115,6 @@ hl.bind(mod .. " + D", utils.direction_focus(1))
 hl.bind(mod .. " + period", hl.dsp.layout("move +col"))
 hl.bind(mod .. " + comma", hl.dsp.layout("move -col"))
 
--- Same, with the scroll wheel
-hl.bind(mod .. " + mouse_down", hl.dsp.layout("move +col"))
-hl.bind(mod .. " + mouse_up", hl.dsp.layout("move -col"))
-
 --------------------------------------------------------------------------------
 -- Media & hardware keys
 --------------------------------------------------------------------------------

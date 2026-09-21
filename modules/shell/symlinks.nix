@@ -22,6 +22,7 @@
       ["SystemConfig/hypr/hyprland.conf" ".config/hypr/hyprland.conf"]
       ["SystemConfig/hypr/xdph.conf" ".config/hypr/xdph.conf"]
       ["SystemConfig/caelestia" ".config/caelestia"]
+      ["SystemConfig/apps/vpn-control-panel/vpn-control-panel.desktop" ".local/share/applications/vpn-control-panel.desktop"]
     ];
   };
 }

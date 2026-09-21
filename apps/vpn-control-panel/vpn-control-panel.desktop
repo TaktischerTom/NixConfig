@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=VPN Control Panel
+Comment=Manage Wireguard Namespace Connections
+Exec=/home/tom/SystemConfig/apps/vpn-control-panel/VPN.x86_64 
+Icon=/home/tom/SystemConfig/apps/vpn-control-panel/icon.png
+Terminal=false
+Categories=Network;Utility;
