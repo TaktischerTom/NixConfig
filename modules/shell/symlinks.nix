@@ -24,6 +24,7 @@
       ["SystemConfig/caelestia" ".config/caelestia"]
       ["SystemConfig/apps/vpn-control-panel/vpn-control-panel.desktop" ".local/share/applications/vpn-control-panel.desktop"]
       ["SystemConfig/apps/wanikani-launch/wanikani.desktop" ".local/share/applications/wanikani.desktop"]
+      ["SystemConfig/apps/editSysConfig/sys.desktop" ".local/share/applications/sys.desktop"]
     ];
   };
 }

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=System Config
+Comment=Opens System Config in Codium
+Exec=codium /home/tom/SystemConfig
+Icon=/home/tom/SystemConfig/apps/editSysConfig/icon.png
+Terminal=false
+Categories=Utility;
