@@ -39,6 +39,7 @@
     openrazer-daemon
     razergenie
     oversteer
+    ddcutil
 
     # Language stuff
     anki

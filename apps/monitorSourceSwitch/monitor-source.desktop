@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Switch Monitor Source
+Comment=Switch Monitor Input from HDMI to DP
+Exec=/home/tom/SystemConfig/apps/monitorSourceSwitch/monitorSource.x86_64 
+Icon=/home/tom/SystemConfig/apps/monitorSourceSwitch/icon.png
+Terminal=false
+Categories=Network;Utility;

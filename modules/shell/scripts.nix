@@ -22,5 +22,7 @@
     (writeShellScriptBin "ClashOfClans" "waydroid app launch com.supercell.clashofclans")
     (writeShellScriptBin "Holodori" "waydroid app launch game.qualiarts.hololive.dreams.com")
     (writeShellScriptBin "autoclicker" ''while true; do ydotool click 0xC0; sleep "$1"; done'')
+    (writeShellScriptBin "toHDMI" (builtins.readFile "${self}/apps/monitorSourceSwitch/toHDMI.sh"))
+    (writeShellScriptBin "toDP" (builtins.readFile "${self}/apps/monitorSourceSwitch/toDP.sh"))
   ];
 }

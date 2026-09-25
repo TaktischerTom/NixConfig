@@ -1,6 +1,9 @@
 { pkgs, ... }:
 {
-  boot.kernelModules = [ "hid-logitech-hidpp" ];
+  boot.kernelModules = [
+    "hid-logitech-hidpp"
+    "i2c-dev"
+  ];
 
   fileSystems."/home/tom/HDD" = {
     device = "/dev/disk/by-uuid/0c69e7a3-4d48-4a50-86f9-5b746c619dd9";
