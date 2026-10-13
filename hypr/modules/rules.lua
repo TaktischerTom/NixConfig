@@ -142,3 +142,18 @@ hl.window_rule({
   match = { tag = "game" },
   render_unfocused = true,
 })
+
+--------------------------------------------------------------------------------
+-- Confine Pointer
+--------------------------------------------------------------------------------
+
+local confinePointerClasses = {
+  "steam_app_2154102662"
+}
+
+for _, class in ipairs(confinePointerClasses) do
+  hl.window_rule({
+    match = { class = class },
+    confine_pointer = true,
+  })
+end
