@@ -26,6 +26,7 @@
     winetricks
     libinput
     inputs.caelestia-shell.packages.${pkgs.stdenv.hostPlatform.system}.with-cli
+    appimageupdate
 
     # Communication
     thunderbird
@@ -47,4 +48,10 @@
     # Custom wrappers
     (writeShellScriptBin "me3" "/home/tom/.local/bin/me3")
   ];
+
+  # System tools options
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
 }
