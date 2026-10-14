@@ -26,6 +26,7 @@
       ["SystemConfig/apps/wanikani-launch/wanikani.desktop" ".local/share/applications/wanikani.desktop"]
       ["SystemConfig/apps/editSysConfig/sys.desktop" ".local/share/applications/sys.desktop"]
       ["SystemConfig/apps/monitorSourceSwitch/monitor-source.desktop" ".local/share/applications/monitor-source.desktop"]
+      ["/home/tom/SystemConfig/hypr/hyprland-session.target" ".config/systemd/user/hyprland-session.target"]
     ];
   };
 }
