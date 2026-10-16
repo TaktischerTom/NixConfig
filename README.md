@@ -40,6 +40,7 @@ Originally a single monolithic file, it has been restructured into a modular arc
 │   ├── desktop/
 │   │   ├── default.nix                # Aggregator
 │   │   ├── hyprland.nix               # Hyprland compositor + UWSM login shell
+│   │   ├── wallpapers.nix             # Declarative per-workspace wallpapers (awww renderer)
 │   │   ├── fonts.nix                  # Font packages + fontconfig defaults
 │   │   └── environment.nix            # X11 keymap, env vars
 │   │
@@ -76,10 +77,13 @@ Originally a single monolithic file, it has been restructured into a modular arc
 │   ├── warframe.sh                    # Launch Warframe via Steam
 │   ├── clipper.sh                     # Video replay clipper (trim + convert to mp4)
 │   ├── save.sh                        # Quickshell notification test script
+│   ├── wallpaper-per-workspace.sh     # awww driver: one wallpaper per workspace
 │   └── tomp4.sh                       # Convert MKV → MP4 (stream copy)
 │
 └── hypr/                              # Hyprland config
     ├── hyprland.conf                  # Main config — monitors, keybinds, window rules, animations
+    ├── hyprland.lua                   # Lua config entry point (Hyprland ≥ 0.55)
+    ├── modules/wallpapers.lua         # Fires the per-workspace wallpaper script on workspace/monitor events
     └── xdph.conf                      # xdg-desktop-portal-hyprland config
 ```
 
@@ -156,6 +160,8 @@ Each `default.nix` is a simple **aggregator** that imports the sibling files in 
 |---|---|---|---|
 | `mainUser` | `modules/core/variables.nix` | `"tom"` | Referenced throughout modules via `config.mainUser` |
 | `links` | `modules/shell/symlinks.nix` | — | Declarative activation-time symlinks (used for Hyprland config) |
+| `desktop.wallpapers.perWorkspace` | `modules/desktop/wallpapers.nix` | — | `"<monitor>:<workspace>"` → wallpaper image, `"<monitor>:*"` for a monitor-wide default |
+| `desktop.wallpapers.default` | `modules/desktop/wallpapers.nix` | `null` | Wallpaper for pairs not covered by `perWorkspace` |
 
 ---
 
@@ -164,6 +170,32 @@ Each `default.nix` is a simple **aggregator** that imports the sibling files in 
 The system runs the **Hyprland** Wayland compositor.
 
 The Hyprland configuration lives in the `hypr/` directory and is symlinked to `~/.config/hypr/` at activation time.
+
+### Per-workspace wallpapers
+
+Caelestia can only paint one global wallpaper, so its wallpaper painting is off
+(`caelestia/shell.json` → `background.wallpaperEnabled = false`) and **awww**
+renders a per-workspace image instead: `hypr/modules/wallpapers.lua` re-runs
+`wallpaper-per-workspace apply` on every workspace/monitor event, and the script
+only touches the monitor whose image actually changed.
+
+The mapping lives in `modules/desktop/wallpapers.nix`:
+
+```nix
+"DP-1:1" = ../../assets/wallpaper/one.png;   # monitor "DP-1", workspace 1
+"HDMI-A-2:*" = ../../assets/wallpaper/two.png; # every workspace on HDMI-A-2
+```
+
+`default` covers anything else. Useful commands:
+
+| Command | Purpose |
+|---|---|
+| `wallpaper-per-workspace status` | Show the resolved mapping and transition settings |
+| `wallpaper-per-workspace resolve <monitor> <workspace>` | Image that would be used |
+| `wallpaper-per-workspace apply` | Re-apply everything (also picks up a rebuild inside a running session) |
+
+The lock screen keeps following the focused monitor (`syncCaelestia = true`),
+while the colour scheme is left untouched.
 
 ---
 
