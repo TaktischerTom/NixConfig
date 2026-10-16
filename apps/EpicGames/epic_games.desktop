@@ -2,7 +2,7 @@
 Type=Application
 Name=Epic Games Launcher
 Comment=Launches Epic Games Linux Client
-Exec=appimage-run /home/tom/Programs/AppImages/EpicGamesLauncher-x86_64.AppImage
+Exec=appimage-run /home/tom/Programs/AppImages/EpicGamesLauncher-x86_64.AppImage --disable-gpu
 Icon=/home/tom/SystemConfig/apps/EpicGames/icon.png
 Terminal=false
 Categories=Utility;
