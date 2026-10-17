@@ -13,7 +13,7 @@ let theme = import ../../assets/theme.nix; in
       # # edit this if you want to keep more configs
       maxGenerations = 5;
       style = {
-        wallpapers = [../../assets/boot.jpg];
+        wallpapers = [../../assets/wallpaper/zhuang.jpg];
         wallpaperStyle = "centered";
         graphicalTerminal = {
           palette = "${theme.base00};${theme.base08};${theme.base0B};${theme.base0A};${theme.base0D};${theme.base0E};${theme.base0C};${theme.base04}";
