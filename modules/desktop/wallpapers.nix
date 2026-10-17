@@ -12,8 +12,8 @@ let
     WALLPAPERS_DEFAULT=${quote (if cfg.default == null then "" else cfg.default)}
     WALLPAPERS_RESIZE=${quote cfg.resize}
     declare -A WALLPAPERS_TRANSITION=(
-      [type]=${quote cfg.transition.type}
-      [duration]=0.3
+      [type]=wipe
+      [duration]=0.4
       [fps]=${quote cfg.transition.fps}
       [step]=${quote cfg.transition.step}
       [bezier]=${quote cfg.transition.bezier}
