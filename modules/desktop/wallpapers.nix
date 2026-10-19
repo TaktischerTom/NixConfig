@@ -3,13 +3,15 @@ let
   cfg = config.desktop.wallpapers;
 
   quote = value: lib.escapeShellArg (toString value);
+  
+  pin = pkgs.copyPathToStore;
 
   # Sourced by scripts/wallpaper-per-workspace.sh.
   wallpaperConfig = pkgs.writeText "wallpaper-per-workspace.bash" ''
     declare -A WALLPAPERS_MAP=(
-    ${lib.concatLines (lib.mapAttrsToList (key: value: "  [${quote key}]=${quote value}") cfg.perWorkspace)}
+    ${lib.concatLines (lib.mapAttrsToList (key: value: "  [${quote key}]=${quote (pin value)}") cfg.perWorkspace)}
     )
-    WALLPAPERS_DEFAULT=${quote (if cfg.default == null then "" else cfg.default)}
+    WALLPAPERS_DEFAULT=${quote (if cfg.default == null then "" else pin cfg.default)}
     WALLPAPERS_RESIZE=${quote cfg.resize}
     declare -A WALLPAPERS_TRANSITION=(
       [type]=wipe
