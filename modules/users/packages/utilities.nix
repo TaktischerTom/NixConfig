@@ -54,4 +54,6 @@
     enable = true;
     binfmt = true;
   };
+
+  programs.tmux.enable = true;
 }
