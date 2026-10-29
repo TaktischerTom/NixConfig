@@ -28,6 +28,8 @@
           difficulty = "normal";
           gamemode = "survival";
           level-seed = "1638";
+          allow-flight = true;
+          white-list = true;
         };
       };
     };
