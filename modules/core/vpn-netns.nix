@@ -23,6 +23,12 @@ EOF
     '';
   };
 
+  # Free Download Manager flatpak, forced into the VPN namespace
+  fdmVpn = pkgs.writeShellScriptBin "fdm" ''
+    exec /run/current-system/sw/bin/vpn-run \
+      ${pkgs.flatpak}/bin/flatpak run org.freedownloadmanager.Manager "$@"
+  '';
+
   # HDoujin portable Wine application wrapped in the VPN namespace
   hdoujinVpn = pkgs.writeShellScriptBin "HDoujin" ''
     export WINEPREFIX="$HOME/.wine-hdoujin"
@@ -47,6 +53,7 @@ in
     (writeShellScriptBin "vpn-run" (builtins.readFile "${self}/scripts/vpn-run.sh"))
 
     qbittorrentVpn
+    fdmVpn
     hdoujinVpn
     hdoujinDesktop
   ];

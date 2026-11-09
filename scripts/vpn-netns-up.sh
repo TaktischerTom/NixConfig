@@ -48,7 +48,9 @@ ip link del "$IFACE" 2>/dev/null || true
 ip netns add "$NS"
 ip -n "$NS" link set lo up
 
+ipv6_on=true
 if ! echo "$address" | grep -q ':'; then
+    ipv6_on=false
     ip netns exec "$NS" sysctl -qw net.ipv6.conf.all.disable_ipv6=1
     ip netns exec "$NS" sysctl -qw net.ipv6.conf.default.disable_ipv6=1
 fi
@@ -77,6 +79,34 @@ fi
 
 ip netns exec "$NS" iptables -t mangle -A POSTROUTING -o "$IFACE" \
     -p tcp --tcp-flags SYN,RST SYN -j TCPMSS --clamp-mss-to-pmtu 2>/dev/null || true
+
+v4_dns=""
+v6_dns=""
+if [ -n "$dns" ]; then
+    IFS=',' read -ra servers <<< "$dns"
+    for s in "${servers[@]}"; do
+        s="$(echo "$s" | tr -d '[:space:]')"
+        [ -z "$s" ] && continue
+        if echo "$s" | grep -q ':'; then
+            [ -n "$v6_dns" ] || v6_dns="$s"
+        else
+            [ -n "$v4_dns" ] || v4_dns="$s"
+        fi
+    done
+fi
+v4_dns="${v4_dns:-1.1.1.1}"
+
+ip netns exec "$NS" iptables -t nat -A OUTPUT -p udp --dport 53 \
+    -j DNAT --to-destination "$v4_dns" 2>/dev/null || true
+ip netns exec "$NS" iptables -t nat -A OUTPUT -p tcp --dport 53 \
+    -j DNAT --to-destination "$v4_dns" 2>/dev/null || true
+
+if $ipv6_on && [ -n "$v6_dns" ]; then
+    ip netns exec "$NS" ip6tables -t nat -A OUTPUT -p udp --dport 53 \
+        -j DNAT --to-destination "$v6_dns" 2>/dev/null || true
+    ip netns exec "$NS" ip6tables -t nat -A OUTPUT -p tcp --dport 53 \
+        -j DNAT --to-destination "$v6_dns" 2>/dev/null || true
+fi
 
 mkdir -p "/etc/netns/$NS"
 if [ -n "$dns" ]; then
