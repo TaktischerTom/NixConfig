@@ -30,6 +30,7 @@
           level-seed = "1638";
           allow-flight = true;
           white-list = true;
+          enforce-whitelist = true;
         };
       };
     };

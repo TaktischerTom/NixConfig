@@ -143,6 +143,12 @@ hl.window_rule({
   render_unfocused = true,
 })
 
+hl.window_rule({
+  name = "minecraft-render-unfocused",
+  match = { title = "^Minecraft NeoForge" },
+  render_unfocused = true,
+})
+
 --------------------------------------------------------------------------------
 -- Confine Pointer
 --------------------------------------------------------------------------------
